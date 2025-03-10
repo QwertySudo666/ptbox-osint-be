@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="default_schema" author="best_author_in_the_world">
+        <createTable tableName="scans">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="domain" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_time" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_time" type="TIMESTAMP"/>
+            <column name="status" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="container_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="findings">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="scan_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fqdn" type="VARCHAR(255)"/>
+            <column name="ip_address" type="VARCHAR(50)"/>
+            <column name="dns_type" type="VARCHAR(50)"/>
+            <column name="dns_value" type="VARCHAR(255)"/>
+            <column name="asn" type="INT"/>
+            <column name="netblock" type="VARCHAR(50)"/>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="findings"
+                baseColumnNames="scan_id"
+                referencedTableName="scans"
+                referencedColumnNames="id"
+                constraintName="fk_findings_scan"
+                onDelete="CASCADE"/>
+    </changeSet>
+</databaseChangeLog>
