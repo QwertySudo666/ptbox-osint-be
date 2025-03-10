@@ -27,7 +27,7 @@ This project is the backend for collecting OSINT data using the Amass tool. It p
 - **PostgreSQL** (database)
 - **Amass** (OSINT data collection)
 
----
+
 
 ## How to Run the Project
 
@@ -40,8 +40,14 @@ Before running, ensure you have installed:
 ### Steps to Run
 
 1. **Clone the repository**:
-   **Note:** Before running docker-compose, make sure to set the correct relative path to your frontend's Dockerfile in the docker-compose.yml file
+   - **Note:** Before running docker-compose, make sure to set the correct relative path to your frontend's Dockerfile in the docker-compose.yml file
    ```bash
    git clone https://github.com/your-username/ptbox-osint-backend.git
    cd ptbox-osint-backend
    docker-compose up --build
+   ```
+   
+   ---
+   
+   ### Frontend repository:
+   - https://github.com/QwertySudo666/ptbox-osint-fe
