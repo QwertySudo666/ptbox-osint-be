@@ -40,7 +40,7 @@ Before running, ensure you have installed:
 ### Steps to Run
 
 1. **Clone the repository**:
-   Note: Before running docker-compose, make sure to set the correct relative path to your frontend's Dockerfile in the docker-compose.yml file
+   **Note:** Before running docker-compose, make sure to set the correct relative path to your frontend's Dockerfile in the docker-compose.yml file
    ```bash
    git clone https://github.com/your-username/ptbox-osint-backend.git
    cd ptbox-osint-backend
